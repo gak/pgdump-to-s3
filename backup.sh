@@ -2,9 +2,9 @@
 
 FILE=`mktemp`
 NOW=`date -uIseconds`
-S3_FILE="s3://${S3_BUCKET}/${S3_PREFIX}${NOW}{$S3_SUFFIX}"
+S3_FILE="s3://${S3_BUCKET}/${S3_PREFIX:-}${NOW}${S3_SUFFIX:-}"
 
-echo Creating database dump...
+echo Creating database dump via ${PGHOST}...
 pg_dump -Fc > ${FILE}
 
 echo Dump size:
