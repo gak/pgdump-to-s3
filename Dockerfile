@@ -12,3 +12,7 @@ RUN \
    rm /var/cache/apk/* && \
    mv /root/bin/s3 /usr/local/bin && \
    rm -rf /root/*
+
+ADD backup.sh /
+
+CMD /backup.sh
